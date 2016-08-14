@@ -37,3 +37,12 @@ function traduz_prioridade($codigo){
 
     return $prioridade;
 }
+
+function traduz_concluida($concluida){
+    if ($concluida == 1){
+        return 'Sim';
+    }
+
+    return 'Não';
+
+}

@@ -50,7 +50,7 @@
                     <td><?php echo $tarefa['descricao']; ?></td>
                     <td><?php echo traduz_data_para_exibir($tarefa['prazo']); ?></td>
                     <td><?php echo traduz_prioridade($tarefa['prioridade']); ?></td>
-                    <td><?php echo $tarefa['concluida']; ?></td>
+                    <td><?php echo traduz_concluida($tarefa['concluida']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
