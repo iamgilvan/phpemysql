@@ -45,6 +45,15 @@ if (tem_post()){
         die();
     }
 
+    $tarefa = array(
+        'id' => 0,
+        'nome' => (isset($_POST['nome'])) ? $_POST['nome'] : '',
+        'descricao' => (isset($_POST['descricao'])) ? $_POST['descricao'] : '',
+        'prazo' => (isset($_POST['prazo'])) ? traduz_data_para_banco($_POST['prazo']) : '',
+        'prioridade' => (isset($_POST['prioridade'])) ? $_POST['prioridade'] : 1,
+        'concluida' => (isset($_POST['concluida'])) ? $_POST['concluida'] : ''
+    );
+
 }
 
 $lista_tarefas = buscar_tarefas($conexao);
