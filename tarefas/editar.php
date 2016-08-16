@@ -33,6 +33,8 @@ if (isset($_GET['nome']) && $_GET['nome'] !=''){
     }
 
     editar_tarefa($conexao, $tarefa);
+    header('Location: tarefas.php');
+    die();
 }
 
 $tarefa = buscar_tarefa($conexao, $_GET['id']);
