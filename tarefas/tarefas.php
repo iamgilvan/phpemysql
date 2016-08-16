@@ -4,11 +4,20 @@ include "banco.php";
 include "ajudantes.php";
 
 $exibir_tabela = true;
+$tem_erros = false;
+$erros_validacao = array();
 
-if (isset($_POST['nome']) && $_POST['nome'] !=''){
+
+if (tem_post()){
     $tarefa = array();
 
-    $tarefa['nome'] = $_POST['nome'];
+    if (isset($_POST['nome']) && strlen($_POST['nome']) > 0){
+        $tarefa['nome'] = $_POST['nome'];
+    } else {
+        $tem_erros = true;
+        $erros_validacao['nome'] = 'O nome da tarefa é obrigatório!';
+    }
+
 
     if (isset($_POST['descricao'])){
         $tarefa['descricao'] = $_POST['descricao'];
@@ -30,9 +39,12 @@ if (isset($_POST['nome']) && $_POST['nome'] !=''){
         $tarefa['concluida'] = 0;
     }
 
-    gravar_tarefa($conexao, $tarefa);
-    header('Location: tarefas.php');
-    die();
+    if (! $tem_erros){
+        gravar_tarefa($conexao, $tarefa);
+        header('Location: tarefas.php');
+        die();
+    }
+
 }
 
 $lista_tarefas = buscar_tarefas($conexao);
