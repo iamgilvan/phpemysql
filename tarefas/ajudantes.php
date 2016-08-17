@@ -42,15 +42,18 @@ function traduz_concluida($concluida){
     if ($concluida == 1){
         return 'Sim';
     }
-
     return 'Não';
-
 }
 
 function tem_post(){
     if (count($_POST) > 0){
         return true;
     }
-
     return false;
+}
+
+function validar_data($data){
+    $padrao = '/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/';
+    $resultado = preg_match($padrao, $data);
+    return $resultado;
 }
