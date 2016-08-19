@@ -29,5 +29,20 @@
         <h2>Anexos</h2>
         <!-- lista de anexos -->
         <!-- formulário para um novo anexo -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Novo Anexo</legend>
+                <input type="hidden" name="tarefa_id" value="<?php echo $tarefa['id']; ?>"/>
+                <label>
+                    <?php if ($tem_erros && isset($erros_validacao['anexo'])) : ?>
+                        <span class="erro">
+                            <?php echo $erros_validacao['anexo']; ?>
+                        </span>
+                    <?php endif; ?>
+                    <input type="file" name="anexo">
+                </label>
+                <input type="submit" name="Cadastrar">
+            </fieldset>
+        </form>
     </body>
 </html>
