@@ -39,7 +39,7 @@
                 <tr>
                     <td><?php echo $anexo['nome']; ?></td>
                     <td>
-                        <a href="anexos/ <?php echo $anexo['arquivo']; ?>">Download</a>
+                        <a href="anexos/<?php echo $anexo['arquivo']; ?>">Download</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
